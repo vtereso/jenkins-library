@@ -351,6 +351,7 @@ def call(body) {
               deployCommand += helmTlsOptions
             }
 	    printTime("About to deploy test release")
+      print "registry=${registry}"
             testDeployAttempt = sh(script: "${deployCommand} > deploy_attempt.txt", returnStatus: true)
 	    printTime("Done deploying test release")
             if (testDeployAttempt != 0) {
