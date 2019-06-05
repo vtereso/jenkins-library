@@ -352,6 +352,7 @@ def call(body) {
             }
 	    printTime("About to deploy test release")
       print "registry=${registry}"
+      sh "cat pipeline.yaml"
             testDeployAttempt = sh(script: "${deployCommand} > deploy_attempt.txt", returnStatus: true)
 	    printTime("Done deploying test release")
             if (testDeployAttempt != 0) {
